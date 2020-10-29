@@ -11,6 +11,12 @@ fi
 echo "Downloading tt-rss..."
 git clone --branch "$TTRSS_GIT_BRANCH" --depth 1 --recurse-submodules "$TTRSS_GIT_URL" tt-rss
 
+echo "Install Feedly Theme"
+wget https://github.com/levito/tt-rss-feedly-theme/archive/master.zip
+unzip master.zip
+cd tt-rss-feedly-theme-master
+cp -r feedly* ../tt-rss/themes.local
+
 echo "Injecting configuration file..."
 cp ttrss-config.php tt-rss/config.php
 
